@@ -1,0 +1,72 @@
+# Create a new project directory and initialize Git repository
+mkdir project
+cd project
+git init
+
+# Create a new file named names.txt and check the status
+touch names.txt
+git status
+
+# Add all the files to the staging area and make the initial commit
+git add .
+git commit -m "names.txt file added"
+
+# Open the names.txt file using Vim, make changes, save, and exit Vim
+vim names.txt
+[press i to insert => make changes => press Esc to go to command mode]
+In command mode, type :wq to save the changes and quit or :q! to not save the changes and quit
+
+# Display the contents of the names.txt file and check the status
+cat names.txt
+git status
+
+# Remove names.txt from the staging area and check the status
+git restore --staged names.txt
+git status
+
+# Add all the files to the staging area again and make a new commit
+git add .
+git commit -m "names.txt file modified"
+
+# Display the commit history
+git log
+
+# Delete the names.txt file and check the status
+rm -rf names.txt
+git status
+
+# Add all the files to the staging area and make another commit
+git add .
+git commit -m "names.txt file deleted"
+
+# Display the commit history again and reset to a specific commit (deleting the last two commits)
+git log
+git reset 58cf24b2e8bcd4bbf3f67b441b868e4c3fd4b522
+
+# Add all the files to the staging area again and check the status
+git add .
+git status
+
+# Rename names.txt to surnames.txt using the mv command
+mv names.txt surnames.txt
+
+# Open surnames.txt using Vim, make changes, save, and exit Vim
+vim surnames.txt
+[press i to insert => make changes => press Esc to go to command mode]
+In command mode, type :wq to save the changes and quit or :q! to not save the changes and quit
+
+# Check the status and create a new branch named smit
+git status
+git branch smit
+
+# Switch to the new smit branch and display the commit history
+git checkout smit
+git log
+
+# Push the changes to the smit branch on the remote repository
+git push origin smit
+
+# Switch back to the main branch and fetch and update the local main branch from the upstream repository
+git checkout main
+git fetch --all --prune
+git reset --hard upstream/main

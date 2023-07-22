@@ -1,0 +1,57 @@
+mkdir project (creates a folder) -> git init (to store the history, creates .git file)
+touch names.txt (creates a file) -> git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit )
+git add . (adds all the files to staging area if you want to add single file than git add names.txt )
+git commit -m "names.txt file added" (adds the file in history with a message or you can just git commit to commit the changes)
+vim names.tx (opens the file -> [press i to insert => press esc to go to command mode] in command mode type :wq to save the changes and quit or :q! to not save the changes and quit)
+cat names.txt (displays the file content)
+git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit)
+git add . (adds all the files to staging area if you want to add single file than git add names.txt )
+git restore --staged names.txt (removes the file from staging area)
+git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit)
+git add . (adds all the files to staging area if you want to add single file than git add names.txt )
+git commit -m "names.txt file modified" (adds the file in history with a message or you can just git commit to commit the changes)
+git log (shows the history of changes made, currently 2 = added, modified)
+rm -rf names.txt (deletes the file)
+git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit)
+git add . (adds all the files to staging area if you want to add single file than git add names.txt )
+git commit -m "names.txt file deleted" (adds the file in history with a message or you can just git commit to commit the changes)
+git log (shows the history of changes made, currently 3 = added, modified, deleted)
+git reset 58cf24b2e8bcd4bbf3f67b441b868e4c3fd4b522 (delets all the commits above this commit, these are all now in unstaged area)
+git add . (adds all the files to staging area if you want to add single file than git add names.txt )
+git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit)
+touch surnames.txt (renames names.txt to surnames.txt)
+vim surnames.txt (opens the file -> [press i to insert => press esc to go to command mode] in command mode type :wq to save the changes and quit or :q! to not save the changes and quit)
+git add . (adds all the files to staging area if you want to add single file than git add names.txt )
+git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit)
+git stash (adds all the changes to stash area)
+git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit)
+git log (shows the history of changes made, currently 1 = added)
+git stash pop (brings all the changes from stash to unstaged area)
+git add . (adds all the files to staging area if you want to add single file than git add names.txt )
+git stash (adds all the changes to stash area)
+git stash clear (deletes the changes from stash, permanently deleted)
+
+
+//CONNECT LOCAL PROJECT WITH GITHUB REPO//
+create a repository on github
+git remote add origin <url> (connects local folder with github repo, url si of the repository, origin is your own url)
+git remote -v (shows the url's attached to the folder)
+git push origin master (pushes the files onto github) 
+add a few files and commit
+git push origin master (pushes the files onto github) 
+
+//WORKING WITH EXISTING PROJECTS//
+choose the repo that you wanna work with -> fork on your own account -> git clone <url> (to clone the repository locally to work with it )
+
+git remote add upstream <url> (adds upstream ur which is the url from where you have cloned the repo)
+vim READEME.md (opens the file -> [press i to insert => press esc to go to command mode] in command mode type :wq to save the changes and quit or :q! to not save the changes and quit)
+git status (shows the status of the file whether they are untracked, tracked or if there is nothing to commit)
+git branch smit (creates a new branch named smit)
+git checkout smit (moves the head to smit branch from main, so all the new changes will be made in smit branch)
+git log (shows the history of changes made, currently 2 = main, 3  = smit)
+git push origin smit (pushes the files onto github)
+
+//MAKING FORKED PROJECT SYNC WITH MAIN PROJECT//
+git checkout main (switches head to main branch)
+git fetch --all --prune (fetches all the changes)
+git reset --hard upstream/main (reset main branch of origin to main branch of upstream)
